@@ -1,0 +1,118 @@
+<div class="container mx-auto flex flex-col min-h-screen bg-light dark:bg-dark p-0 space-y-16">
+    <!-- TOP BAR -->
+    <div class="flex flex-row h-16 w-full items-center justify-between backdrop-blur-xl sticky top-3">
+        <!-- HEADING -->
+        <app-nav-indicator
+            [title]="'Clients'"
+            [path]="'Tableau de Bord | Clients | Liste'">
+        </app-nav-indicator>
+
+        <!-- RIGHT ITEMS -->
+        <div class="flex flex-row h-12 space-x-4 items-center">
+            <!-- ADD BUTTON -->
+            <a class="
+                flex flex-row h-10
+                items-center p-2
+                justify-center
+                cursor-pointer
+                rounded-xl
+                hover:opacity-80
+                text-light dark:text-dark
+                bg-primary_light
+                dark:bg-primary_dark"
+                routerLink = "/clients/add"
+                >
+
+                <!-- <app-icon [icon]="'add-circle'" [size]="'h-8 w-8'"></app-icon> -->
+                <i data-duoicon="add-circle" class="h-8 w-8"></i>
+                <p class="text">Ajouter</p>
+        </a>
+
+            <!-- NOTIFICATIONS -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <app-icon [icon]="'bell-badge'" [size]="'h-8 w-8'"></app-icon>
+                <!-- <i data-duoicon="bell-badge" class="h-8 w-8"></i> -->
+            </div>
+
+            <!-- PROFILE -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <!-- <i data-duoicon="user" class="h-8 w-8"></i> -->
+                <app-icon [icon]="'user'" [size]="'h-8 w-8'"></app-icon>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex flex-row w-full space-x-8">
+
+        <!-- PANNEL (PRODUCTS) -->
+        <div class="container mx-auto flex flex-col w-[100%] space-y-8 p-1 overflow-y-auto">
+
+            <div class="flex flex-row justify-between items-start">
+                <!-- COUNTER -->
+                <div class="flex flex-col h-full justify-center items-right space-y-.5">
+                    <span class="text-left text-6xl font-quicksand font-bold text-dark dark:text-light leading-none">
+                        {{clients!.length}}
+                    </span>
+                    <p class="text-left text-md text-dark dark:text-light leading-none">
+                        Clients
+                    </p>
+                </div>
+
+                <!-- SEARCH INPUT -->
+                <div class="
+                    flex flex-row h-12 bg-light_canvas
+                    dark:bg-dark items-center
+                    justify-center space-x-4
+                    w-[35%] rounded-xl">
+                    <!-- ICON -->
+                    <div class="flex w-[10%] items-center justify-center rounded-l-xl">
+                        <i class="
+                        bx bx-search bx-s
+                        text-primary_light
+                        dark:text-primary_dark"></i>
+                    </div>
+
+                    <!-- INPUT -->
+                    <input type="text" name="" id=""
+                        placeholder = "rechercher..."
+                        #search_field
+                        (input)="search(search_field.value)"
+                        class = "
+                        h-full w-[90%] rounded-r-xl
+                        bg-light_canvas
+                        dark:bg-dark
+                        border-none focus:outline-none"
+                    >
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID -->
+            <div class="grid grid-cols-4 w-full gap-4 lg:grid-row-6"
+                [ngClass]="{'hidden':clients!.length===0}">
+                <!-- CLIENTS  -->
+                <app-client-card
+                    *ngFor="let client of clients"
+                    [client] = "client"
+                    (clientDelete) = "delete($event)"
+                    (updateClientRequest) = "openUpdateModal($event)"
+                    >
+                </app-client-card>
+            </div>
+
+            <!-- EMPTY LIST COMPONENT -->
+            <app-empty-list
+                [title]="'Liste de clients vide!'"
+                [ngClass]="{'hidden':clients!.length>0}">
+            </app-empty-list>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<li class="w-full h-24 hover:bg-light dark:hover:bg-dark rounded-md"
+    title="{{description}}"
+    [ngClass]="{'bg-light':active,'dark:bg-dark':active}">
+    <a routerLink="{{ link }}" class="flex flex-col items-center justify-center space-y-3 text-xs w-full h-full">
+        <!-- ICON -->
+        <i data-duoicon = "{{ icon }}"
+            class=" h-10 w-10
+            duoicon-primary:text-primary_light
+            duoicon-secondary:opacity-40
+            duoicon-primary:opacity-80
+            duoicon-secondary:text-primary_light
+            dark:duoicon-primary:text-primary_dark
+            dark:duoicon-secondary:text-primary_dark
+            ">
+        </i>
+        <!-- TITLE -->
+        <p class="text-xs text-center text-primary_light dark:text-primary_dark">
+            {{title}}
+        </p>
+    </a>
+</li>

@@ -1,0 +1,148 @@
+<div class="container mx-auto flex flex-col w-full bg-light dark:bg-dark p-0 space-y-12">
+
+    <!-- TOP BAR -->
+    <div class="flex flex-row h-16 w-full bg-red-200- items-center justify-between sticky top-3 backdrop-blur-xl">
+        <!-- HEADING -->
+        <app-nav-indicator
+            [title]="'Factures'"
+            [path]="'Tableau de Bord | Factures | Liste'">
+        </app-nav-indicator>
+
+        <!-- RIGHT ITEMS -->
+        <div class="flex flex-row h-12 space-x-4 items-center">
+            <!-- ADD BUTTON -->
+            <a class="
+                flex flex-row h-10
+                items-center p-2
+                justify-center
+                cursor-pointer
+                rounded-xl space-x-2
+                hover:opacity-80
+                text-light dark:text-dark
+                bg-primary_light
+                dark:bg-primary_dark
+                "
+                routerLink="/billings/add">
+                <!-- <app-icon [icon]="'add-circle'" [size]="'h-8 w-8'"></app-icon> -->
+                <i data-duoicon="add-circle" class="h-8 w-8"></i>
+                <p class="text">nouveau</p>
+            </a>
+
+            <!-- NOTIFICATIONS -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <app-icon [icon]="'bell-badge'" [size]="'h-8 w-8'"></app-icon>
+                <!-- <i data-duoicon="bell-badge" class="h-8 w-8"></i> -->
+            </div>
+
+            <!-- PROFILE -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <!-- <i data-duoicon="user" class="h-8 w-8"></i> -->
+                <app-icon [icon]="'user'" [size]="'h-8 w-8'"></app-icon>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex flex-row w-full space-x-8">
+
+        <!-- LEFT BAR (PRODUCTS) -->
+        <div class="flex flex-col w-[75%] space-y-8 p-1 overflow-y-auto">
+
+            <!-- PRODUCT GRID -->
+            <div class="grid grid-cols-4 gap-4 lg:grid-row-6"
+                [ngClass]="{'hidden':bills.length===0}">
+                <!-- BILLS -->
+                <app-bill-card
+                    *ngFor="let bill of bills"
+                    [bill] = "bill"
+                    (billPreviewd) = "open_preview_modal($event)"
+                    (updateProductRequest) = "0//openAddModal($event)"
+                    >
+                </app-bill-card>
+            </div>
+
+            <!-- EMPTY LIST COMPONENT -->
+            <app-empty-list
+                [title]="'Liste de facture vide!'"
+                [ngClass]="{'hidden':bills.length>0}">
+            </app-empty-list>
+        </div>
+
+        <!-- RIGHT PANNEL (FILTERS) -->
+        <div class="
+            flex flex-col space-y-8
+            py-6 px-4 w-[25%] h-full
+            rounded-xl sticky top-24
+            bg-lightDark
+            dark:bg-dark_canvas">
+
+            <!-- HEADING -->
+            <div class="flex flex-row items-center space-x-2">
+                <p class="text-dark dark:text-light">FILTRES</p>
+            </div>
+
+            <!-- SEARCH INPUT -->
+            <div class="
+                flex flex-row h-12 bg-light_canvas
+                dark:bg-dark items-center
+                justify-center space-x-4
+                w-full rounded-xl">
+                <!-- ICON -->
+                <div class="flex w-[10%] items-center justify-center rounded-l-xl">
+                    <i class="
+                    bx bx-search bx-s
+                    text-primary_light
+                    dark:text-primary_dark"></i>
+                </div>
+
+                <!-- INPUT -->
+                <input type="text" name="" id=""
+                    placeholder = "rechercher..."
+                    #search_field
+                    (input)="search(search_field.value)"
+                    class = "
+                    h-full w-[90%] rounded-r-xl
+                    bg-light_canvas
+                    dark:bg-dark
+                    border-none focus:outline-none"
+                >
+            </div>
+
+            <!-- CLIENTS FILTERS -->
+            <div class="flex flex-col">
+                <h4 class="text-left text-xs font-quicksand">
+                    CLIENTS
+                </h4>
+                <div class="flex items-center">
+                    <!-- SELECT -->
+                    <select name="" id="" #category_select (change)="search(category_select.value)"
+                        class="
+                            appearance-none
+                            w-full rounded-md h-12 mt-2
+                            bg-light_canvas dark:bg-dark
+                            py-2 px-4 focus:outline-none">
+                        <option value="" selected>Tous les Clients</option>
+                        <option value="{{client.id}}"
+                            *ngFor="let client of clients">
+                            {{client.first_name}} {{client.last_name}} ({{client.phone}})
+                        </option>
+                    </select>
+
+                    <!-- ICON -->
+                    <div class="pointer-events-none absolute right-6 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

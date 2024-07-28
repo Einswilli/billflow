@@ -1,0 +1,22 @@
+<div
+    (click)="preview_bill()"
+    class="
+        flex flex-col items-center
+        justify-center p-3 space-y-3
+        bg-light_canvas
+        dark:bg-dark_canvas rounded-lg">
+    <!-- ICON -->
+    <div class="flex items-center justify-center h-14 w-14 p-2.5 bg-light dark:bg-dark rounded-full">
+        <app-icon [icon]="'file'"
+            [size]="'h-10 w-10'">
+        </app-icon>
+    </div>
+
+    <!-- BILL ID -->
+    <span class="text-[10px] text-dark dark:text-light">
+        {{bill?.created | date}}
+    </span>
+    <span class="text-[10px] text-dark dark:text-light">
+        {{bill?.client?.first_name +' ' +bill?.client?.last_name}}
+    </span>
+</div>

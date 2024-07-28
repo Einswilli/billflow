@@ -1,0 +1,51 @@
+<div class="flex flex-col p-4 space-y-5 items-center">
+    <!-- HEADING TITLE -->
+     <h2 class="text-lg font-bold text-dark dark:text-light">
+        Prix de vente de {{ product?.name }}
+    </h2>
+
+    <!-- PRICE FIELD -->
+    <div class="flex flex-col w-full space-y-4">
+        <div class="flex flex-col w-full space-y-.5">
+            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                Prix de vente
+            </label>
+            <input
+                type = "number"
+                name = "price"
+                id = "price"
+                #price_input
+                placeholder = "2000"
+                value = "{{product?.price}}"
+                min="0"
+                class="
+                    w-full h-12 pl-4 border-none
+                    rounded-md bg-light
+                    dark:bg-dark
+                    focus:outline-none
+            ">
+        </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex flex-row w-full space-x-4 h-10">
+        <!-- CANCEL BUTTON -->
+        <button
+            (click)="go_back()"
+            class="w-1/2 rounded-lg
+            bg-gray-600 h-10
+            text-light">
+            Annuler
+        </button>
+
+        <!-- UPDATE BUTTON -->
+        <button
+            (click)="add_product_to_card(price_input.value)"
+            class="w-1/2 rounded-lg
+            bg-primary_light h-10
+            dark:bg-primary_dark
+            text-light dark:text-dark">
+            Ajouter
+        </button>
+    </div>
+</div>

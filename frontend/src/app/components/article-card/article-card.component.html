@@ -1,0 +1,39 @@
+<div class="flex flex-row bg-light_canvas items-center justify-between dark:bg-dark_canvas rounded-md p-2">
+    <!-- PRODUCT IMAGE -->
+    <img src="assets/images/products/ph.jpg" alt="" class="h-14 rounded-md">
+
+    <!-- INFORMATIONS FLEX FONTAINER -->
+    <div class="flex flex-col justify-center ml-2 w-[60%]">
+        <!-- PRODUCT NAME -->
+        <h2 class="text-lg font-quicksand text-dark dark:text-light font-bold">{{article_product?.infos.product.name}}</h2>
+
+        <!-- PRODUCT DESCRIPTION -->
+        <!-- <p class="text-sm text-gray-500">Product Description</p> -->
+
+        <!-- PRODUCT PRICE INPUT -->
+        <input
+            type="number"
+            #price
+            (input)="changePrice(price.value)"
+            class=" p-.5 pl-4 pr-2 w-[50%]
+                bg-light dark:bg-dark
+                rounded-md focus:outline-none
+            "
+            value="{{article_product?.infos.selling_price}}"
+            min="1"
+        >
+        <!-- <p class="text-sm text-gray-500 dark:text-gray-300"> f</p> -->
+    </div>
+
+    <div class="w-2"></div>
+
+    <!-- REMOVE BUTTON -->
+    <button (click)="deleteArticle()" title="Supprimer"
+        class="flex items-center justify-center
+        h-10 w-10 bg-light dark:bg-dark rounded-md">
+        <app-icon [icon]="''"
+            [size]="'bx bx-trash bx-sm text-red-500
+            dark:primary_dark bx-s'">
+        </app-icon>
+    </button>
+</div>

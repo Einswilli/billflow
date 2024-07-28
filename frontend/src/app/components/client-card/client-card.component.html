@@ -1,0 +1,39 @@
+<div class="flex flex-col space-y-4 py-6 items-center justify-center rounded-2xl bg-light_canvas dark:bg-dark_canvas">
+    <!-- USER IMAGE OR ICON -->
+    <div class="bg-light dark:bg-dark rounded-full p-2.5">
+        <app-icon [icon] = "'user'" [size]="'h-14 w-14'"></app-icon>
+    </div>
+
+    <!-- NAMES -->
+    <span class="text-center text-dark dark:text-light text-md font-semibold">
+        {{ client?.first_name }} {{ client?.last_name }}
+    </span>
+
+    <!-- PHONE NUMBER -->
+    <span class="text-center p-2 rounded-md bg-light dark:bg-dark text-dark dark:text-light text-sm">
+        {{ client?.phone }}
+    </span>
+
+    <!-- BUTTONS -->
+    <div class="flex flex-row space-x-3">
+        <!-- EDIT BUTTON -->
+        <button (click)="updateClient()" title="Editer"
+            class="flex items-center justify-center
+            h-8 w-8 bg-light dark:bg-dark rounded-md">
+            <app-icon [icon]="''"
+                [size]="'bx bx-edit text-primary_light
+                dark:primary_dark bx-s'">
+            </app-icon>
+        </button>
+
+        <!-- DELETE BUTTON -->
+        <button (click)="deleteClient()" title="Supprimer"
+            class="flex items-center justify-center
+            h-8 w-8 bg-light dark:bg-dark rounded-md">
+            <app-icon [icon]="''"
+                [size]="'bx bx-trash text-red-500
+                dark:primary_dark bx-s'">
+            </app-icon>
+        </button>
+    </div>
+</div>

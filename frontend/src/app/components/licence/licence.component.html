@@ -1,0 +1,31 @@
+<div class="markdown-preview flex flex-col p-3 space-y-4">
+    <!-- TITLE -->
+    <h1 class="text-3xl text-center font-bold mb-4">LICENCE AGREEMENTS</h1>
+
+    <!-- LICENCE -->
+    <div class="rounded-md h-[25rem] bg-light dark:bg-dark p-3 overflow-scroll">
+        <markdown [data]="markdownContent"></markdown>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex justify-center space-x-4">
+        <!-- CANCEL BUTTON -->
+        <button
+            (click)="go_back()"
+            class="w-full rounded-lg
+            bg-gray-600 h-10
+            text-light">
+            Annuler
+        </button>
+
+        <!-- UPDATE BUTTON -->
+        <button
+            (click)="accept_licence()"
+            class="w-full rounded-lg
+            bg-primary_light h-10
+            dark:bg-primary_dark
+            text-light dark:text-dark">
+            Accepter
+        </button>
+    </div>
+</div>

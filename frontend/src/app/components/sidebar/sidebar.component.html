@@ -1,0 +1,46 @@
+<div class="w-32 fixed h-full bg-light_canvas dark:bg-dark_canvas">
+    <div class="flex flex-col space-y-8 p-4">
+        <!-- LOGO -->
+        <app-logo></app-logo>
+
+        <!-- NAVIGATION -->
+        <nav class="">
+            <ul class="flex flex-col space-y-4">
+                <!-- CATEGORIES -->
+                <app-sidebar-item
+                [link] = "'/categories'"
+                [title] = "'Catégories'"
+                [icon] = "'dashboard'"
+                [description]=""></app-sidebar-item>
+
+                <!-- PRODUCTS -->
+                <app-sidebar-item
+                [link] = "'/products'"
+                [title] = "'Produits'"
+                [icon] = "'box'"
+                [description]=""></app-sidebar-item>
+
+                <!-- BILLING -->
+                <app-sidebar-item
+                [link] = "'/billings'"
+                [title] = "'Factures'"
+                [icon] = "'bookmark'"
+                [description]=""></app-sidebar-item>
+
+                <!-- CLIENTS -->
+                <app-sidebar-item
+                [link] = "'/clients'"
+                [title] = "'Clients'"
+                [icon] = "'user-card'"
+                [description]=""></app-sidebar-item>
+
+                <!-- ACCOUNTS -->
+                <app-sidebar-item
+                [link] = "'/accounts'"
+                [title] = "'Utilisateurs'"
+                [icon] = "'user'"
+                [description]=""></app-sidebar-item>
+            </ul>
+        </nav>
+    </div>
+</div>

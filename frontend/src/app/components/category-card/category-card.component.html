@@ -1,0 +1,37 @@
+<div class="
+    flex flex-col space-y-4 p-4
+    items-center justify-center
+    rounded-lg bg-light_canvas
+    dark:bg-dark_canvas">
+
+    <!-- ICON -->
+    <app-icon [icon]="'app'" [size]="'h-10 w-10'"></app-icon>
+
+    <!-- NAME -->
+    <p class="text-dark dark:text-light text-center text-xs">
+        {{ category?.name }}
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="flex flex-row space-x-3 items-center justify-between">
+        <!-- UPDATE BUTTON -->
+        <button (click)="updateCategory()"
+            class="flex items-center justify-center
+            h-8 w-8 bg-light dark:bg-dark rounded-full">
+            <app-icon [icon]="''"
+                [size]="'bx bx-edit text-primary_light
+                dark:primary_dark bx-s'">
+            </app-icon>
+        </button>
+
+        <!-- DELETE BUTTON -->
+        <button (click)="deleteCategory()"
+            class="flex items-center justify-center
+            h-8 w-8 bg-light dark:bg-dark rounded-full">
+            <app-icon [icon]="''"
+                [size]="'bx bx-trash text-red-700
+                bx-s'">
+            </app-icon>
+        </button>
+    </div>
+</div>

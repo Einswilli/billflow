@@ -1,0 +1,331 @@
+<div class="container mx-auto flex flex-col min-h-screen bg-light dark:bg-dark p-0 space-y-16">
+    <!-- TOP BAR -->
+    <div class="flex flex-row h-16 w-full items-center justify-between backdrop-blur-xl sticky top-3">
+        <!-- HEADING -->
+        <app-nav-indicator
+            [title]="'Produits'"
+            [path]="'Tableau de Bord | Produits | Nouveau'">
+        </app-nav-indicator>
+
+        <!-- RIGHT ITEMS -->
+        <div class="flex flex-row h-12 space-x-4 items-center">
+            <!-- ADD BUTTON -->
+            <a class="
+                flex flex-row h-10
+                items-center p-2
+                justify-center
+                cursor-pointer
+                rounded-xl space-x-2
+                hover:opacity-80
+                text-light dark:text-dark
+                bg-primary_light
+                dark:bg-primary_dark
+                "
+                routerLink="/products/">
+                <!-- <app-icon [icon]="'add-circle'" [size]="'h-8 w-8'"></app-icon> -->
+                <i data-duoicon="app" class="h-8 w-8"></i>
+                <p class="text">voir la Liste</p>
+            </a>
+
+            <!-- NOTIFICATIONS -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <app-icon [icon]="'bell-badge'" [size]="'h-8 w-8'"></app-icon>
+                <!-- <i data-duoicon="bell-badge" class="h-8 w-8"></i> -->
+            </div>
+
+            <!-- PROFILE -->
+            <div class="
+                flex h-10 w-10 rounded-xl
+                bg-light_canvas p-2
+                dark:bg-dark_canvas
+                items-center justify-center">
+                <!-- <i data-duoicon="user" class="h-8 w-8"></i> -->
+                <app-icon [icon]="'user'" [size]="'h-8 w-8'"></app-icon>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT CREATION FORM CONTAINER -->
+    <div class="flex flex-row w-full items-start space-x-8">
+        <!-- LEFT SIDE -->
+        <div class="flex flex-col w-[30%] space-y-4 p-4 bg-light_canvas dark:bg-dark_canvas rounded-xl sticky top-32">
+
+            <!-- HEADING -->
+            <h3 class="text-left text-lg p-3 justify-center rounded-md">
+                ETAPES
+            </h3>
+
+            <!-- REFERENCE NAME AND BRAND -->
+            <h3 (click)="changeStep('RNB')"
+                [ngClass]="{'bg-secondary_light dark:bg-secondary_dark':current_step=='RNB'}"
+                class="
+                    text-left text-md p-3 justify-center
+                    rounded-md hover:bg-secondary_light dark:hover:bg-secondary_dark
+                    cursor-pointer
+                ">
+                <span class="font-bold font-quicksand text-primary_light dark:text-primary_dark">
+                    Étape 1
+                </span> : Informations générales
+            </h3>
+
+            <!-- CATEGORY AND DESCRIPTION -->
+            <h3 (click)="changeStep('CD')"
+                [ngClass]="{'bg-secondary_light dark:bg-secondary_dark':current_step=='CD'}"
+                class="
+                    text-left text-md p-3 justify-center
+                    rounded-md hover:bg-secondary_light dark:hover:bg-secondary_dark
+                    cursor-pointer
+                ">
+                <span class="font-bold font-quicksand text-primary_light dark:text-primary_dark">
+                    Étape 2
+                </span> : Catégorie et Description
+            </h3>
+
+            <!-- PRICE AND TAXES -->
+            <h3 (click)="changeStep('PT')"
+                [ngClass]="{'bg-secondary_light dark:bg-secondary_dark':current_step=='PT'}"
+                class="
+                    text-left text-md p-3 justify-center
+                    rounded-md hover:bg-secondary_light dark:hover:bg-secondary_dark
+                    cursor-pointer
+                ">
+                <span class="font-bold font-quicksand text-primary_light dark:text-primary_dark">
+                    Étape 3
+                </span> : Prix et Taxes
+            </h3>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="flex flex-row w-[70%] p-0 space-x-8">
+            <!-- FORM -->
+            <form class="flex flex-col w-[55%] space-y-4"
+                [formGroup] = "form"
+                enctype="multipart/form-data">
+                <!-- REFERENCE NAME AND BRAND -->
+                <div class="flex flex-col w-[100%] space-y-4" id="RNB">
+                    <h3 class="text-left text-lg pt-3 justify-center rounded-md">
+                        INFORMATIONS GÉNÉRALES
+                    </h3>
+
+                    <!-- REFERENCE FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-xl">
+                                Référence
+                            </label>
+                            <input
+                                type="text"
+                                name="reference"
+                                id="reference"
+                                formControlName = "code"
+                                placeholder="12LFA35DE4"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- NAME FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Désignation
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                formControlName = "name"
+                                placeholder="Voiture de course"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- BRAND FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Marque
+                            </label>
+                            <input
+                                type="text"
+                                name="brand"
+                                id="brand"
+                                formControlName = "brand"
+                                placeholder="Maserati"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- NEXT BUTTON -->
+                    <div class="flex flex-row w-full justify-end">
+                        <button type="button" (click)="changeStep('CD')"
+                            class="w-[40%] bg-primary_light dark:bg-primary_dark h-10 rounded-md mt-8">
+                            <span class="text-light dark:text-dark text-md font-bold-">Suivant</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CATEGORIES AND DESCRIPTION -->
+                <div class="hidden flex flex-col w-[100%] space-y-4" id="CD">
+                    <h3 class="text-left text-lg pt-3 justify-center rounded-md">
+                        CATÉGORIE et DESCRIPTION
+                    </h3>
+
+                    <!-- CATEGORY FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Catégorie
+                            </label>
+                            <select
+                                name="category"
+                                id="category"
+                                formControlName = "category"
+                                class="
+                                    h-10 rounded-md py-2 px-4
+                                    bg-light_canvas dark:bg-dark_canvas">
+                                <option value="" disabled selected>Choisissez un catégorie</option>
+                                <option value="{{category.id}}"
+                                    *ngFor="let category of categories">
+                                    {{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- DESRIPTION FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Description
+                            </label>
+                            <textarea
+                                type = "text"
+                                name = "name"
+                                id = "name"
+                                formControlName = "description"
+                                placeholder = "Voiture de course"
+                                class="
+                                    w-full h-32 p-3 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            "></textarea>
+                        </div>
+                    </div>
+
+                    <!-- PREVIOUS AND NEXT BUTTON -->
+                    <div class="flex flex-row w-full justify-between">
+                        <!-- PREVIOUS BUTTON -->
+                        <button type="button" (click)="changeStep('RNB')"
+                            class="w-[40%] bg-gray-600 h-10 rounded-md mt-8">
+                            <span class="text-light text-md font-bold-">retour</span>
+                        </button>
+
+                        <!-- NEXT BUTTON -->
+                        <button type="button" (click)="changeStep('PT')"
+                            class="w-[40%] bg-primary_light dark:bg-primary_dark h-10 rounded-md mt-8">
+                            <span class="text-light dark:text-dark text-md font-bold-">Suivant</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRICING AND TAXES -->
+                <div class="hidden flex flex-col w-[100%] space-y-4" id="PT">
+                    <h3 class="text-left text-lg pt-3 justify-center rounded-md">
+                        PRIX et TAXES
+                    </h3>
+
+                    <!-- PRICE FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Prix
+                            </label>
+                            <input
+                                type = "number"
+                                name = "price"
+                                id = "price"
+                                formControlName = "price"
+                                placeholder = "2000"
+                                class = "
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- TAXES FIELD -->
+                    <div class="flex flex-col w-full space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                TVA (%)
+                            </label>
+                            <input
+                                type = "number"
+                                name = "tva"
+                                id = "tva"
+                                formControlName = "tva"
+                                placeholder = "2000"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light_canvas
+                                    dark:bg-dark_canvas
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- PREVIOUS AND NEXT BUTTON -->
+                    <div class="flex flex-row w-full justify-between">
+                        <!-- PREVIOUS BUTTON -->
+                        <button type="button" (click)="changeStep('CD')"
+                            class="w-[40%] bg-gray-600 h-10 rounded-md mt-8">
+                            <span class="text-light text-md font-bold-">retour</span>
+                        </button>
+
+                        <!-- NEXT BUTTON -->
+                        <button type="button" (click)="save()" class="w-[40%] bg-primary_light dark:bg-primary_dark h-10 rounded-md mt-8">
+                            <span class="text-light dark:text-dark text-md font-bold-">Enregistrer</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- ERRORS DETAILS INDICATOR -->
+            <div
+                *ngIf="errors?.length != 0"
+                [ngClass]="{'hidden': form.valid}"
+                class="flex flex-col w-[40%]
+                justify-start space-y-3
+                rounded-lg">
+
+                <!-- ERRROR ITEM -->
+                <div *ngFor="let err of errors"
+                    class="bg-red-400 bg-opacity-10 p-2 text-xs rounded-lg">
+                    <div >{{err}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="h-screen w-screen flex items-center justify-center">
+    <div class="flex flex-col h-50vh bg-light_canvas dark:bg-dark_canvas p-8 mt-64- rounded-md space-y-12">
+
+        <!-- HEADING -->
+        <h3 class="text-center font-quicksand text-lg">
+            Connexion
+        </h3>
+
+        <!-- FORM INPUTS CONTAINER -->
+        <div class="flex flex-col space-y-8">
+            <!-- USERNAME OR EMAIL FIELD -->
+            <div class="flex flex-col space-y-2">
+                <label for="username" class="font-quicksand text-xs">
+                    Nom d'utilisateur ou Email.
+                </label>
+
+                <!-- INPUT -->
+                <input
+                    type = "text"
+                    name = "login"
+                    id = "login"
+                    #login_field
+                    placeholder = "exemple@gmail.com"
+                    class = "
+                        border-none focus:outline-none
+                        bg-light dark:bg-dark
+                        text-dark dark:text-light
+                        rounded-md h-10 pl-3
+                        "/>
+            </div>
+
+            <!-- PASSWORD FIELD -->
+            <div class="flex flex-col space-y-2">
+                <label for="username" class="font-quicksand text-xs">
+                    Mot de passe.
+                </label>
+
+                <!-- INPUT -->
+                <input
+                    type = "password"
+                    name = "password"
+                    id = "password"
+                    #password_field
+                    placeholder = "********"
+                    class = "
+                        border-none focus:outline-none
+                        bg-light dark:bg-dark
+                        text-dark dark:text-light
+                        rounded-md h-10 pl-3
+                        "/>
+            </div>
+
+            <!-- LONGIN BUTTON -->
+            <button
+                (click)="login(login_field.value,password_field.value)"
+                class="bg-primary_light dark:bg-primary_dark w-full h-10 hover:opacity-80 rounded-md text-light dark:text-dark">
+                Se connecter
+            </button>
+        </div>
+
+    </div>
+</div>

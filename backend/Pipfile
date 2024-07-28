@@ -1,0 +1,43 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4.1.5"
+dj-rest-auth = "*"
+bson = "*"
+#factory-boy = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
+django-phonenumber-field = "*"
+#firebase-admin = "*"
+#moviepy = "*"
+django-storages = "*"
+phonenumbers = "*"
+django-extensions = "*"
+django-countries = "*"
+pillow = "*"
+python-dotenv = "*"
+djangorestframework-simplejwt = "*"
+gunicorn = "*"
+#gcloud = "*"
+#google-auth = "*"
+django-filter = "*"
+simplejson = "*"
+celery = "*"
+redis = "*"
+schedule = "*"
+#twilio = "*"
+httpx = "*"
+django-admin-interface = "*"
+mysqlclient = "*"
+#algoliasearch = "*"
+#openai = "*"
+infobip-api-python-sdk = "*"
+drf-standardized-errors = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

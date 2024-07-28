@@ -1,0 +1,184 @@
+
+<div class="flex flex-col h-auto w-full space-y-2 p-4 justify-center overflow-auto">
+    <!-- HEADING -->
+    <div class="flex flex-row h-10 justify-between items-center">
+        <div class="w-10"></div>
+
+        <h2 class="text-3xl text-center font-bold font-quicksand">
+            Visualisation PDF
+        </h2>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-row space-x-3">
+            <!-- PRINT BUTTON -->
+            <a (click)="exportPDF()" title="Télécharger"
+                class="flex items-center justify-center cursor-pointer
+                h-10 w-10 bg-light dark:bg-dark rounded-md">
+                <app-icon [icon]="''"
+                    [size]="'bx bx-download text-primary_light
+                    dark:primary_dark bx-s'">
+                </app-icon>
+            </a>
+
+            <!-- CLOSE BUTTON -->
+            <a (click)="go_back()" title="Fermer"
+                class="flex items-center justify-center cursor-pointer
+                h-10 w-10 bg-light dark:bg-dark rounded-md">
+                <app-icon [icon]="''"
+                    [size]="'bx bx-x text-red-500
+                    dark:primary_dark bx-s'">
+                </app-icon>
+            </a>
+        </div>
+    </div>
+
+    <!-- INVOICE -->
+    <div class="w-full mx-auto px-20 py-6 bg-light_canvas dark:bg-dark" id="invoice">
+
+        <div class="flex flex-cols items-center justify-between">
+            <!-- TITLE -->
+            <div class="flex flex-col space-y-3 mt-8 font-quicksand">
+                <h1 class="text-left text-6xl font-bold leading-none-">
+                    Facture
+                </h1>
+
+                <!-- BILL IDENTIFYERS -->
+                <div class="text-left  text-dark dark:text-light">
+                    <p class="text-xs">
+                        Facture Nº:
+                        <span class="text-xs">{{bill?.code}}</span>
+                    </p>
+                    <p>
+                        Date: <span class="">{{bill?.created | date}}</span>
+                        <br />
+                        <!-- Due date:<span class="text-gray-500">31/07/2023</span> -->
+                    </p>
+                </div>
+            </div>
+
+            <!-- LOGO -->
+            <div>
+                <!--  COMPANY LOGO  -->
+                <img src="assets/icons/logo/logo_single.png" alt="company-logo" class="h-20">
+            </div>
+
+        </div>
+
+        <!-- HORIZONTAL SEPARATOR -->
+        <hr class="w-full h-[2px] bg-dark dark:bg-light my-4">
+
+        <!-- CLIENT AND COMPANY INFOS -->
+        <div class="flex flex-cols items-center justify-between mt-8">
+
+            <!-- COMPANY INFORMATIONS -->
+            <div class="text-left text-dark dark:text-light">
+                <p class="font-bold uppercase">
+                    AllDotPy Inc,
+                </p>
+                <p class="text-sm">
+                    sales@alldotpy.com
+                </p>
+                <p class="text-sm mt-1">
+                    +41-442341232
+                </p>
+                <p class="text-sm mt-1">
+                    VAT: 8657671212
+                </p>
+            </div>
+
+            <!-- CLIENT INFORMATIONS -->
+            <div class="text-dark dark:text-light text-right">
+                <p class="font-bold uppercase">
+                    Facture à l'intention de
+                </p>
+                <p class="text-sm">
+                    {{bill?.client?.first_name}} {{bill?.client?.last_name}}
+                    <br />
+                    {{bill?.client?.address}}
+                </p>
+                <p class="text-sm">
+                    {{bill?.client?.phone}}
+                </p>
+            </div>
+        </div>
+
+
+        <!-- INVOICE ITEMS -->
+        <div class="-mx-4 mt-12 flow-root sm:mx-0">
+            <table class="min-w-full border border-dark dark:border-light">
+                <thead class="">
+                    <tr class="h-10
+                    bg-secondary_light
+                    dark:bg-secondary_dark
+                    ">
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Produits</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Prix Unitaires</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Taxes (%)</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Montants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="h-10 border border-dark dark:border-ligh dark:bg-light" *ngFor="let article of bill?.articles">
+                        <td class="pl-3 border border-dark dark:border-light">
+                            {{article.product.name}}
+                        </td>
+                        <td class="pl-3 border border-dark dark:border-light">
+                            {{article.selling_price}}
+                        </td>
+                        <td class="pl-3 border border-dark dark:border-light">
+                            {{article.product.tva}}
+                        </td>
+                        <td class="pl-3 border border-dark dark:border-light">
+                            {{article.total}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SUB TOTALS -->
+            <div class="flex flex-row items-center justify-between ">
+                <div class="w5"></div>
+
+                <div class="flex flex-col w-[50%] justify-center mt-4 space-y-3">
+                    <!-- SUBTOTALS -->
+                    <div class="flex justify-between items-center mt-0">
+                        <p class="text-sm font-bold">
+                            Sous-total
+                        </p>
+                        <p class="text-sm">
+                            {{bill?.total}} f
+                        </p>
+                    </div>
+
+                    <!-- TAXES -->
+                    <div class="flex justify-between items-center mt-0">
+                        <p class="text-sm font-bold">
+                            Taxes
+                        </p>
+                        <p class="text-sm">
+                            {{bill?.total}} f
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOTAL -->
+            <div class="flex justify-between items-center mt-4 bg-secondary_light dark:bg-secondary_dark p-2.5">
+                <p class="text-xl font-quicksand font-bold text-dark dark:text-light">
+                    Total
+                </p>
+                <p class="text-xl font-quicksand font-bold">
+                    {{bill?.total}} f cfa
+                </p>
+            </div>
+        </div>
+
+      <!--  FOOTER  -->
+      <div class="border-t-2 pt-4 text-xs text-gray-500 text-center mt-10">
+        MERCI DE VOTRE CONFIANCE
+      </div>
+
+    </div>
+</div>
+
+<!-- <button type="button" id="btn" class="">Print</button> -->

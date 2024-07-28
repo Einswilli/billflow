@@ -1,0 +1,48 @@
+<div class="flex flex-col p-3 space-y-4 bg-light_canvas dark:bg-dark_canvas items-cemter justify-center rounded-xl">
+    <!-- PRODUCT IMAGE -->
+    <img src="../../../assets/images/products/ph.webp" alt="" class="w-24- mx-auto rounded-md">
+
+    <!-- PRODUCT NAME -->
+    <h3 class="text-center text-md lg:text-xl- -mt-14 font-quicksand-">
+        {{product?.name}}.
+    </h3>
+
+    <!-- PRODUCT DESCRIPTION -->
+    <p class="text-xs text-center hidden">
+        {{product?.description}}
+    </p>
+
+    <!-- PRODUCT PRICE -->
+    <div class=" mt-4
+        flex justify-between items-center
+        space-x-3
+        rounded-lg">
+        <span class="text-md p-0 bg-lightDark- text-primary_light dark:text-primary_dark bg-opacity-10 rounded-lg">
+            {{product?.price}}
+        </span>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-row space-x-3">
+            <!-- EDIT BUTTON -->
+            <button (click)="updateProduct()" title="Editer"
+                class="flex items-center justify-center
+                h-8 w-8 bg-light dark:bg-dark rounded-md">
+                <app-icon [icon]="''"
+                    [size]="'bx bx-edit text-primary_light
+                    dark:primary_dark bx-s'">
+                </app-icon>
+            </button>
+
+            <!-- DELETE BUTTON -->
+            <button (click)="deleteProduct()" title="Supprimer"
+                class="flex items-center justify-center
+                h-8 w-8 bg-light dark:bg-dark rounded-md">
+                <app-icon [icon]="''"
+                    [size]="'bx bx-trash text-red-500
+                    dark:primary_dark bx-s'">
+                </app-icon>
+            </button>
+        </div>
+
+    </div>
+</div>

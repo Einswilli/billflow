@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  backend:
+    # restart: unless-stopped
+    volumes:
+      - static:/static
+    # env_file:
+    #     - .env
+    build:
+      context: ./olfback
+    ports:
+      - '8000:8000'
+    # environment:
+    #   CELERY_BROKER_URL: "redis://94.23.209.170:6379/0"
+    #   CELERY_RESULT_BACKEND: "redis://94.23.209.170:6379/1"
+
+  frontend:
+    build:
+      context: ./olffront
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+
+  # redis:
+  #   restart: unless-stopped
+  #   image: redis:7.0.5-alpine 
+  #   expose:
+  #     - 6379
+    # ports:
+    #   - '6379:6379'
+
+volumes:
+  static:

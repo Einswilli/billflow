@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CUSTOM FONTS */
+@layer base {
+  /* LEXEND */
+  @font-face {
+    font-family: 'lexend';
+    src: url(../src/assets/fonts/lexend/Lexend-Regular.ttf);
+  }
+
+  /* QUICKSAND */
+  @font-face {
+      font-family: 'quicksand';
+      src: url(../src/assets/fonts/Quicksand/Quicksand-Regular.ttf);
+  }
+}

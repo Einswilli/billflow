@@ -1,0 +1,205 @@
+<div class="flex flex-col w-full h-70vh p-3 bg-light items-center justify-center rounded-lg">
+    <!-- HEADING -->
+    <div class="flex flex-row w-full justify-between">
+        <div class=""></div>
+
+        <h2 class="text-2xl text-center text-dark dark:text-light font-quicksand font-bold">
+            Editer {{ client?.first_name }} {{ client?.last_name }}
+        </h2>
+
+        <!-- CLOSE MODAL BUTTON -->
+        <button (click)="go_back()"
+            class="flex items-center justify-center
+            w-8 h-8 rounded-full bg-light_canvas
+            dark:bg-dark_canvas">
+            <app-icon [icon]=""
+                [size]="'bx bx-x bx-sm text-dark dark:text-light'">
+            </app-icon>
+        </button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container mx-auto flex flex-row w-full items-center justify-center space-x-6">
+        <!-- FORM CONTAINER -->
+        <div class="
+            flex flex-col w-[60%] p-4
+            rounded-lg
+            bg-light_canvas
+            dark:bg-dark_canvas">
+
+            <form class="flex flex-col space-y-5 p-2" [formGroup]="form">
+                <!-- FIRST AND LAST NAMES FIELDS -->
+                <div class="flex flex-row space-x-6">
+                    <!-- FIRST NAME FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Prénom(s)
+                            </label>
+                            <input
+                                type="text"
+                                name="first_name"
+                                id="first_name"
+                                formControlName="first_name"
+                                placeholder="John"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- LAST NAME FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Nom
+                            </label>
+                            <input
+                                type="text"
+                                name="last_name"
+                                id="last_name"
+                                formControlName="last_name"
+                                placeholder="John"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMAIL AND PHONE NUMBER FIELDS -->
+                <div class="flex flex-row space-x-6">
+                    <!-- EMAIL FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                E-mail
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                formControlName="email"
+                                placeholder="JohnDoe@example.com"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- PHONE NUMBER FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Numéro de Téléphone
+                            </label>
+                            <input
+                                type="phone"
+                                name="phone"
+                                id="phone"
+                                formControlName="phone"
+                                placeholder="+228 90000000"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADDRESS FIELD -->
+                <div class="flex flex-col w-full space-y-4">
+                    <div class="flex flex-col w-full space-y-.5">
+                        <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                            Adresse
+                        </label>
+                        <input
+                            type="text"
+                            name="address"
+                            id="address"
+                            formControlName="address"
+                            placeholder="John"
+                            class="
+                                w-full h-12 pl-4 border-none
+                                rounded-md bg-light
+                                dark:bg-dark
+                                focus:outline-none
+                        ">
+                    </div>
+                </div>
+
+                <!-- CITY AND POSTAL CODE FIELDS -->
+                <div class="flex flex-row space-x-6">
+                    <!-- CITY FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Ville
+                            </label>
+                            <input
+                                type="text"
+                                name="city"
+                                id="city"
+                                formControlName="city"
+                                placeholder="Lomé"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+
+                    <!-- POSTAL CODE FIELD -->
+                    <div class="flex flex-col w-[50%] space-y-4">
+                        <div class="flex flex-col w-full space-y-.5">
+                            <label for="reference" class="text-left text-xs text-md p-1 justify-center rounded-md">
+                                Code Postal
+                            </label>
+                            <input
+                                type="text"
+                                name="postal_code"
+                                id="postal_code"
+                                formControlName="postal_code"
+                                placeholder="B99275"
+                                class="
+                                    w-full h-12 pl-4 border-none
+                                    rounded-md bg-light
+                                    dark:bg-dark
+                                    focus:outline-none
+                            ">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEXT BUTTON -->
+                <button type="button" (click)="save()" class="w-[100%] bg-primary_light dark:bg-primary_dark h-10 rounded-md mt-8">
+                    <span class="text-light dark:text-dark text-md font-bold-">Enregistrer</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- IMAGE CONTAINER -->
+        <div class="flex flex-col w-[40%] p-6 space-y-12">
+            <!-- HEADING TEXT -->
+            <h2 class="text-2xl hidden text-center text-dark dark:text-light font-quicksand font-bold">
+                Editer {{ client?.first_name }} {{ client?.last_name }}
+            </h2>
+
+            <!-- IMAGE -->
+            <img src="assets/images/clients/pana.svg" alt="image" class="max-h-[20rem] w-auto">
+        </div>
+    </div>
+</div>
