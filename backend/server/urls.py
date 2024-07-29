@@ -32,9 +32,9 @@ from core.handlers import (
 # handler404 = custom_404
 # handler500 = 'rest_framework.exceptions.server_error'
 
-admin.site.site_header = 'DREAMMORE'
-admin.site.index_title = "Welcome to DREAMMORE ADMIN PANEL"
-admin.site.site_title = 'DREAMMORE'
+admin.site.site_header = 'BillFlow'
+admin.site.index_title = "Welcome to BillFlow ADMIN PANEL"
+admin.site.site_title = 'BillFlow'
 
 urlpatterns = [
     path("admin/", admin.site.urls),
