@@ -25,7 +25,7 @@
     "angular-jwt": "^0.1.11",
     "bootstrap": "^5.2.3",
     "duo-icons": "^1.1.4",
-    "html2pdf.js": "^0.9.0",
+    "html2pdf.js": "^0.10.2",
     "marked": "^4.3.0",
     "ng-angular-popup": "^0.5.2",
     "ngx-markdown": "^16.0.0",
