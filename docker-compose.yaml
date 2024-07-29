@@ -23,14 +23,14 @@ services:
     depends_on:
       - backend
 
-  nginx:
-    build: ./nginx
-    volumes:
-      - static:/static
-    ports:
-      - '80:80'
-    depends_on:
-      - backend
+  # nginx:
+  #   build: ./nginx
+  #   volumes:
+  #     - static:/static
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #     - backend
 
   # redis:
   #   restart: unless-stopped

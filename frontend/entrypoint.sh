@@ -2,4 +2,4 @@
 npm install -f
 
 # RUNNING SERVER IN PRODUCTION MOD
-ng serve --configuration production --verbose
+ng serve --host 0.0.0.0 #--configuration production --verbose
