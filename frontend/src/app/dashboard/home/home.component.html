@@ -50,7 +50,169 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="flex flex-row w-full space-x-8 rounded-xl bg-light_canvas dark:bg-dark_canvas">
+    <div class="flex flex-col w-full space-y-8 rounded-xl">
+        <!-- FIEST ROW -->
+        <div class="flex flex-row h-56 w-full space-x-8 rounded-lg ">
+            <!-- FIRST COL -->
+            <div class="flex flex-row w-[70%] rounded-xl bg-secondary_light dark:bg-primary_dark p-3">
+                <!-- TITLE -->
+                <div class="flex flex-col w-[65%] space-y-4 items-start">
+                    <p class="text-3xl font-bold font-quicksand">
+                        Facturation intélligente,<br>
+                    </p>
+                    <p class="text-2xl font-bold font-quicksand">
+                        paiements et suivi. Tout en un <br> avec BillFlow.
+                    </p>
 
+                    <!-- BUY LICENCE BUTTON -->
+                    <div class="flex flex-row w-full justify-start space-x-4">
+                        <!-- CANCEL BUTTON -->
+                        <button
+                            (click)="0"
+                            class="w-[35%] rounded-lg
+                            bg-light_canvas dark:bg-dark_canvas h-10
+                            text-dark dark:text-light">
+                            payer la licence
+                        </button>
+
+                        <!-- UPDATE BUTTON -->
+                        <button
+                            (click)="0//accept_licence()"
+                            class="w-[35%] rounded-lg
+                            bg-primary_light h-10
+                            dark:bg-primary_dark
+                            text-light dark:text-dark">
+                            Faire un don
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ILLUSTRATION -->
+                 <div class="flex flex-row w-[35%] justify-end items-end">
+                    <img src="assets/images/others/rafiki.svg" alt="illustration">
+                 </div>
+            </div>
+
+            <!-- SECOND COL -->
+            <div class="flex flex-col w-[30%] rounded-xl space-y-4">
+
+                <!-- CLIENTS -->
+                <a routerLink="/clients"
+                    class="w-full h-1/2 rounded-xl bg-light_canvas dark:bg-dark_canvas p-3 cursor-pointer">
+                    <div class="flex flex-row h-full items-center justify-center space-x-4">
+                        <!-- ICON -->
+                        <div class="flex justify-center h-full items-center w-1/4">
+                            <app-icon [icon]="'user-card'"
+                                [size]="'h-12 w-12'">
+                            </app-icon>
+                        </div>
+                        <!-- TEXTS -->
+                        <div class="flex flex-col justify-center items-start w-3/4">
+                            <p class="text-4xl font-bold font-quicksand">
+                                {{client_count}}
+                            </p>
+                            <p class="text-lg font-quicksand">
+                                Clients
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- USERS -->
+                <a class="w-full h-1/2 rounded-xl bg-light_canvas dark:bg-dark_canvas p-3">
+                    <div class="flex flex-row h-full items-center justify-center space-x-4">
+                        <!-- ICON -->
+                        <div class="flex justify-center h-full items-center w-1/4">
+                            <app-icon [icon]="'user'"
+                                [size]="'h-12 w-12'">
+                            </app-icon>
+                        </div>
+                        <!-- TEXTS -->
+                        <div class="flex flex-col justify-center items-start w-3/4">
+                            <p class="text-4xl font-bold font-quicksand">
+                                2
+                            </p>
+                            <p class="text-md font-quicksand">
+                                Utilisateurs
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SCOND ROW -->
+        <div class="flex flex-row w-full h-56 justify-between space-x-4">
+            <!-- FIRST COL CATEGORIES -->
+            <a routerLink="/categories"
+                class="w-1/4 h-full rounded-xl bg-light_canvas dark:bg-dark_canvas p-4">
+                <div class="flex flex-row h-full items-center justify-center space-x-4">
+                    <!-- ICON -->
+                    <div class="flex justify-center h-full items-center w-1/4">
+                        <app-icon [icon]="'user-card'"
+                            [size]="'h-14 w-14'">
+                        </app-icon>
+                    </div>
+                    <!-- TEXTS -->
+                    <div class="flex flex-col justify-center items-center w-3/4">
+                        <p class="text-6xl font-bold font-quicksand">
+                            {{categories_counter}}
+                        </p>
+                        <p class="text-2xl font-quicksand">
+                            Catégories
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- SECOND COL PRODUCTS -->
+            <a routerLink="/products"
+                class="w-1/4 h-full rounded-xl bg-light_canvas dark:bg-dark_canvas p-4">
+                <div class="flex flex-row h-full items-center justify-center space-x-4">
+                    <!-- ICON -->
+                    <div class="flex justify-center h-full items-center w-1/4">
+                        <app-icon [icon]="'box'"
+                            [size]="'h-14 w-14'">
+                        </app-icon>
+                    </div>
+                    <!-- TEXTS -->
+                    <div class="flex flex-col justify-center items-center w-3/4">
+                        <p class="text-6xl font-bold font-quicksand">
+                            {{products_count}}
+                        </p>
+                        <p class="text-2xl font-quicksand">
+                            Produis
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- THIRD COL BILLS -->
+            <a routerLink="/billings"
+                class="w-1/4 h-full rounded-xl bg-light_canvas dark:bg-dark_canvas p-4">
+                <div class="flex flex-row h-full items-center justify-center space-x-4">
+                    <!-- ICON -->
+                    <div class="flex justify-center h-full items-center w-1/4">
+                        <app-icon [icon]="'bookmark'"
+                            [size]="'h-14 w-14'">
+                        </app-icon>
+                    </div>
+                    <!-- TEXTS -->
+                    <div class="flex flex-col justify-center items-center w-3/4">
+                        <p class="text-6xl font-bold font-quicksand">
+                            {{bills_count}}
+                        </p>
+                        <p class="text-2xl font-quicksand">
+                            Factures
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- FIRST COL RECENT BILLS -->
+            <div class="w-1/4 h-full rounded-xl bg-light_canvas dark:bg-dark_canvas">
+
+            </div>
+        </div>
     </div>
 </div>

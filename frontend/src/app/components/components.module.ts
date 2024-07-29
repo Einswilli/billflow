@@ -17,6 +17,7 @@ import { ArticleCardComponent } from './article-card/article-card.component';
 import { EmptyListComponent } from './empty-list/empty-list.component';
 import { LicenceComponent } from './licence/licence.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 
 
@@ -36,7 +37,8 @@ import { MarkdownModule } from 'ngx-markdown';
     BillProductComponent,
     ArticleCardComponent,
     EmptyListComponent,
-    LicenceComponent
+    LicenceComponent,
+    CommingSoonComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { MarkdownModule } from 'ngx-markdown';
     BillProductComponent,
     ArticleCardComponent,
     EmptyListComponent,
-    LicenceComponent
+    LicenceComponent,
+    CommingSoonComponent
   ],
 })
 export class ComponentsModule { }

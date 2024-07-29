@@ -12,4 +12,4 @@ celery -A server.celery worker -l info &
 celery -A server.celery beat -l info &
 
 # RUN GUNICORN
-gunicorn --bind 0.0.0.0:8000 --workers 4 server.wsgi:application
+gunicorn --bind localhost:8000 --workers 4 server.wsgi:application
