@@ -224,7 +224,7 @@ export class NewComponent {
         let total_cost = 0
         this.article_products.forEach(
             (art:any)=>{
-                total_cost += art.infos.selling_price //* art.infos.quantity
+                total_cost += art.infos.selling_price * art.infos.quantity
             }
         )
         return total_cost
