@@ -182,7 +182,7 @@ export class NewComponent {
                 if(art.id == article.id){
                     // UPDATE ARTICLE
                     art.infos.selling_price = article.price
-                    // art.infos.quantity = article.quantity WOULD LIKE TO ADD QUANTITY
+                    art.infos.quantity = article.quantity
                     console.log(
                         JSON.stringify(this.build_article_for_request())
                     );
@@ -210,6 +210,7 @@ export class NewComponent {
             (art:any)=>{
                 return {
                     product: art.id,
+                    quantity: art.infos.quantity,
                     selling_price: art.infos.selling_price
                 }
             }

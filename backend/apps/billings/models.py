@@ -25,7 +25,7 @@ class Article(TimeStampedUUIDModel):
         null = False, blank = False
     )
     selling_price = models.IntegerField(default = 0)
-    # quantity = models.IntegerField(default=1)         # WOULD LIKE TO ADD QUANTITY.
+    quantity = models.IntegerField(default=1)         # WOULD LIKE TO ADD QUANTITY.
     
     # META CLASS
     class Meta:
@@ -47,7 +47,7 @@ class Article(TimeStampedUUIDModel):
         ''' Return the article total price. '''
         
         # NORMALY WILL RETURN A REULT OF (selling_prince * quantity)
-        return self.selling_price
+        return self.selling_price * self.quantity
     
     
 ####

@@ -19,11 +19,12 @@ export class ArticleCardComponent {
 
 
     // PRICE CHANGE EVENT
-    changePrice(price:string) {
+    changePrice(price:string,quantity:string) {
         this.priceChange.emit(
             {
                 id:this.article_product.id,
-                price: parseInt(price)
+                price: parseInt(price),
+                quantity: parseInt(quantity)
             }
         )
     }

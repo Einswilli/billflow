@@ -112,15 +112,19 @@
                     dark:bg-secondary_dark
                     ">
                         <th scope="col" class="pl-3 border- border-dark dark:border-light">Produits</th>
-                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Prix Unitaires</th>
-                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Taxes (%)</th>
-                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Montants</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Quantités</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Prix U.</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">TVA (%)</th>
+                        <th scope="col" class="pl-3 border- border-dark dark:border-light">Montants TTC</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="h-10 border border-dark dark:border-ligh dark:bg-light" *ngFor="let article of bill?.articles">
                         <td class="pl-3 border border-dark dark:border-light">
                             {{article.product.name}}
+                        </td>
+                        <td class="pl-3 border border-dark dark:border-light">
+                            {{article.quantity}}
                         </td>
                         <td class="pl-3 border border-dark dark:border-light">
                             {{article.selling_price}}
@@ -136,7 +140,7 @@
             </table>
 
             <!-- SUB TOTALS -->
-            <div class="flex flex-row items-center justify-between ">
+            <div class="hidden flex- flex-row items-center justify-between ">
                 <div class="w5"></div>
 
                 <div class="flex flex-col w-[50%] justify-center mt-4 space-y-3">

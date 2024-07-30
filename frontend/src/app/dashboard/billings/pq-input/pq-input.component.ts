@@ -22,11 +22,11 @@ export class PqInputComponent {
         this.parent.get_categories()
     }
 
-    add_product_to_card(price:string){
+    add_product_to_card(price:string,quantity:string){
         // BUILD ARTICLE
         var data:any = {
             product: this.product,
-            // quantity: 1
+            quantity: parseInt(quantity),
             selling_price: parseInt(price)
         }
         // EMIT ARTICLE

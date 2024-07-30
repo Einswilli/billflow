@@ -10,18 +10,34 @@
         <!-- PRODUCT DESCRIPTION -->
         <!-- <p class="text-sm text-gray-500">Product Description</p> -->
 
-        <!-- PRODUCT PRICE INPUT -->
-        <input
-            type="number"
-            #price
-            (input)="changePrice(price.value)"
-            class=" p-.5 pl-4 pr-2 w-[50%]
-                bg-light dark:bg-dark
-                rounded-md focus:outline-none
-            "
-            value="{{article_product?.infos.selling_price}}"
-            min="1"
-        >
+        <!-- FLEX CONTAINER -->
+        <div class="flex flex-row space-x-3 w-full">
+            <!-- PRODUCT PRICE INPUT -->
+            <input
+                type="number"
+                #price
+                (input)="changePrice(price.value,quantity.value)"
+                class=" p-.5 pl-4 pr-2 w-[50%]
+                    bg-light dark:bg-dark
+                    rounded-md focus:outline-none
+                "
+                value="{{article_product?.infos.selling_price}}"
+                min = "1"
+            >
+
+            <!-- QUANTITY INPUT -->
+            <input
+                type="number"
+                #quantity
+                (input)="changePrice(price.value,quantity.value)"
+                class=" p-.5 pl-4 pr-2 w-[50%]
+                    bg-light dark:bg-dark
+                    rounded-md focus:outline-none
+                "
+                value="{{article_product?.infos.quantity}}"
+                min = "1"
+            >
+        </div>
         <!-- <p class="text-sm text-gray-500 dark:text-gray-300"> f</p> -->
     </div>
 
